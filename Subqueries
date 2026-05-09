@@ -1,0 +1,37 @@
+-- Step 1: Create Department table
+CREATE TABLE Department (
+    dept_id INT,
+    dept_name VARCHAR(20)
+);
+
+-- Step 2: Insert data into Department
+INSERT INTO Department VALUES
+(1, 'HR'),
+(2, 'IT'),
+(3, 'Sales');
+
+-- Step 3: Create Employee table
+CREATE TABLE Employee (
+    emp_id INT,
+    emp_name VARCHAR(20),
+    salary INT,
+    dept_id INT
+);
+
+-- Step 4: Insert data into Employee
+INSERT INTO Employee VALUES
+(101, 'Rahul', 25000, 1),
+(102, 'Amit', 40000, 2),
+(103, 'Sneha', 30000, 2),
+(104, 'Neha', 20000, 3);
+
+-- Step 5: Subquery Example
+-- Find employees working in IT department
+
+SELECT emp_name, salary
+FROM Employee
+WHERE dept_id = (
+    SELECT dept_id
+    FROM Department
+    WHERE dept_name = 'IT'
+);
