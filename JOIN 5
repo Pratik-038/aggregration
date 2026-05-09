@@ -1,0 +1,58 @@
+CREATE TABLE student (
+    id INT,
+    name VARCHAR(20),
+    branch VARCHAR(20)
+);
+
+CREATE TABLE marks (
+    id INT,
+    marks INT
+);
+
+INSERT INTO student VALUES
+(1,'Ram','CSE'),
+(2,'Shyam','IT'),
+(3,'Amit','MECH');
+
+INSERT INTO marks VALUES
+(1,80),
+(2,75),
+(3,90);
+
+SELECT student.id,
+       student.name,
+       marks.marks
+FROM student
+INNER JOIN marks
+ON student.id = marks.id;
+
+SELECT student.id,
+       student.name,
+       marks.marks
+FROM student
+LEFT JOIN marks
+ON student.id = marks.id;
+
+SELECT student.id,
+       student.name,
+       marks.marks
+FROM student
+RIGHT JOIN marks
+ON student.id = marks.id;
+
+SELECT *
+FROM student
+CROSS JOIN marks;
+
+//creating view
+CREATE VIEW student_view AS
+SELECT student.id,
+       student.name,
+       marks.marks
+FROM student
+INNER JOIN marks
+ON student.id = marks.id;
+
+SELECT * FROM student_view;
+
+DROP VIEW student_view;
