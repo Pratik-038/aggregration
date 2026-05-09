@@ -1,0 +1,68 @@
+use college
+
+db.createCollection("student")
+
+db.student.insert({
+   id:1,
+   name:"Pratik",
+   branch:"CSE"
+})
+
+db.student.insert({
+   id:2,
+   name:"Rahul",
+   branch:"IT"
+})
+
+db.student.insert({
+   id:3,
+   name:"Amit",
+   branch:"MECH"
+})
+
+db.student.find()
+
+db.student.find({id:1})
+
+db.student.find({
+   $and:[
+      {branch:"CSE"},
+      {id:1}
+   ]
+})
+
+db.student.find({
+   $or:[
+      {branch:"CSE"},
+      {branch:"IT"}
+   ]
+})
+
+db.student.find({
+   branch:{
+      $not:{$eq:"CSE"}
+   }
+})
+
+db.student.find({
+   id:{$gt:1}
+})
+
+db.student.find({
+   id:{$lt:3}
+})
+
+db.student.update(
+   {id:1},
+   {$set:{name:"Mahesh"}}
+)
+
+db.student.save({
+   id:4,
+   name:"Kiran",
+   branch:"ECE"
+})
+
+db.student.remove({id:2})
+
+db.student.find().pretty()
