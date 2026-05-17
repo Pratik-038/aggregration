@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exp 10 Web Dev</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background-color: #f2f2f2;
+}
+
+.container{
+    width: 350px;
+    margin: 100px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+h2{
+    text-align: center;
+    color: darkblue;
+}
+
+input[type="text"],
+input[type="number"]{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+input[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    margin-top: 10px;
+}
+
+.result{
+    margin-top: 20px;
+    background: #e6ffe6;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Voting Eligibility</h2>
+
+<form method="POST">
+
+Name :
+<input type="text" name="name"
+placeholder="Enter the name" required>
+<br><br>
+
+Age :
+<input type="number" name="age"
+placeholder="Enter age" required>
+<br><br>
+
+<input type="submit" value="Check">
+
+</form>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $name = $_POST['name'];
+    $age = $_POST['age'];
+
+    echo "<div class='result'>";
+
+    echo "<h3>Hello $name</h3>";
+
+    if ($age >= 18) {
+        echo "You are eligible to vote";
+    } else {
+        echo "You are not eligible to vote";
+    }
+
+    echo "</div>";
+}
+
+?>
+
+</div>
+
+</body>
+</html>
