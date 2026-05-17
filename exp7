@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+            text-align: center;
+            font-family: sans-serif;
+            margin-top: 50px;
+        }
+
+         #targetbox {
+            width: 300px;
+            height: 150px;
+            background-color: #e0e0e0;
+            border: 2px solid #333;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            font-size: 20px;
+            margin: 20px auto;
+            transition: all 0.5s ease;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>js dom demo</h2>
+        <div id="targetbox">
+            original text content
+        </div>
+
+        <button class="btn" onclick="changetext()">change text</button>
+        <button class="btn" onclick="changestyle()">Change Style</button>
+        <button class="btn" onclick="togglebox()">SHOW / HIDE</button>
+    </div>
+
+    <script>
+        function changetext(){
+            var box = document.getElementById('targetbox');
+            box.innerHTML = "<b>Hello world !</b><br>DOM manipulation"
+        }
+
+        function changestyle(){
+            let box = document.getElementById("targetbox");
+
+            box.style.backgroundColor = "red";
+            box.style.color = "white";
+            box.style.border = "1px solid yellow";
+            box.style.borderRadius = '25px';
+            box.style.boxShadow = "0px 10px 20px rgba(0,0,0,0.3)";
+        }
+
+        function togglebox (){
+            let box = document.getElementById("targetbox");
+            if(box.style.display === "none"){
+                box.style.display = "block"
+            }
+            else {
+                box.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
