@@ -1,30 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Voting Check</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(138, 139, 139);
+            /* border-radius: 10px;
+            border: 1px solid rgb(114, 213, 246); */
+            /* align-items: center; */
+            justify-content: center;
+            align-content: center;
+           align-items: center;
+            margin: 140px 400px;
+        }
+
+        form {
+            display: block;
+            background-color: rgb(172, 223, 239);
+            border-radius: 10px;
+            border: 1px solid rgb(114, 213, 246);
+            margin: 50px;
+            height: 250px;
+            width: 500px;
+            padding: 50px;
+            align-content: center;
+
+        }
+
+        input {
+            display: block;
+            width: 250px;
+            height: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            justify-content: center;
+            gap: 20px;
+        }
+
+
+        #login {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
+
 <body>
+    <form name="My form" action="exp6.html" onsubmit="return validateForm()" method="post">
+        <label>Email id</label>
+        <input type="email" id="u_email" placeholder="Enter email">
+        <br>
+        <label>Password</label>
+        <input type="password" id="u_password" placeholder="*******">
+        <br>
+        <button type="submit" id="login">login</button>
+    </form>
 
-<form method="POST">
-    Name: <input type="text" name="name" required><br><br>
-    Age: <input type="number" name="age" required><br><br>
-    <input type="submit" value="Check">
-</form>
+    <script>
+        function validateForm(){
+            var email = document.getElementById("u_email").value.trim();
+            var password = document.getElementById("u_password").value.trim();
+             if (email==='' || password ===''){
+                alert("email or pass can not be empty");
+                return false;
+             }
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $name = $_POST['name'];
-    $age = $_POST['age'];
-
-    echo "<h3>Hello $name</h3>";
-
-    if ($age >= 18)
-        echo "You are Eligible to vote.";
-    else
-        echo "You are Not Eligible to vote.";
-}
-?>
-
+             alert('validation successful');
+             return true;
+        }
+    </script>
 </body>
+
 </html>
