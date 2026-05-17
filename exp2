@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Page with Image, Hyperlink, and Nested Table</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sample Web Page</h1>
+
+  <!-- Image -->
+  <h2>Image</h2>
+  <img src="https://via.placeholder.com/300" alt="Sample Image">
+
+  <!-- Hyperlink -->
+  <h2>Hyperlink</h2>
+  <a href="https://www.google.com" target="_blank">
+    Visit Google
+  </a>
+
+  <!-- Nested Table -->
+  <h2>Nested Table</h2>
+
+  <table>
+    <tr>
+      <th>Main Table 1</th>
+      <th>Main Table 2</th>
+    </tr>
+
+    <tr>
+      <td>Row 1 Data</td>
+
+      <td>
+        <!-- Nested Table -->
+        <table>
+          <tr>
+            <th>Nested 1</th>
+            <th>Nested 2</th>
+          </tr>
+
+          <tr>
+            <td>A</td>
+            <td>B</td>
+          </tr>
+
+          <tr>
+            <td>C</td>
+            <td>D</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
