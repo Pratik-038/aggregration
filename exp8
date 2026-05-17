@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="calculator">
+        <h2>JS calculator</h2>
+        <input type="number" id="num1" placeholder="Enter a Number 1">
+        <input type="number" id="num2" placeholder="Enter a Number 2">
+
+        <div class="btn">
+            <button onclick="calculate('+')">+</button>
+            <button onclick="calculate('-')">-</button>
+            <button onclick="calculate('*')">*</button>
+            <button onclick="calculate('/')">/</button>
+        </div>
+
+        <hr>
+
+        <p>
+            result : <span id="result">0</span>
+        </p>
+    </div>
+
+    <script>
+        function calculate(operator) {
+            var n1 = parseFloat(document.getElementById("num1").value);
+            var n2 = parseFloat(document.getElementById("num2").value);
+            var result = 0;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                alert("please enter valid number!")
+                return;
+            }
+
+            switch (operator) {
+                case '+':
+                    result = n1 + n2;
+                    break;
+                case '-':
+                    result = n1 - n2;
+                    break;
+                case '*':
+                    result = n1 * n2;
+                    break;
+                case '/':
+                    if (n2 === 0) {
+                        alert("not divide by 0");
+                        return;
+                    }
+                    result = n1/n2;
+                    break;
+                default:
+                    result = 'invalid';
+            }
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+
+</html>
