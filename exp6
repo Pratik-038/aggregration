@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Check</title>
+</head>
+<body>
+
+<form method="POST">
+    Name: <input type="text" name="name" required><br><br>
+    Age: <input type="number" name="age" required><br><br>
+    <input type="submit" value="Check">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $name = $_POST['name'];
+    $age = $_POST['age'];
+
+    echo "<h3>Hello $name</h3>";
+
+    if ($age >= 18)
+        echo "You are Eligible to vote.";
+    else
+        echo "You are Not Eligible to vote.";
+}
+?>
+
+</body>
+</html>
